@@ -103,6 +103,7 @@ const PostReq = () => {
             onChange={(e) => setLocation(e.target,value)}
             placeholder="service"
             />
+            
             <textarea
               rows="4"
               value={description}

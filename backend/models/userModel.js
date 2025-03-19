@@ -26,7 +26,7 @@ const userSchema=new mongoose.Schema({
         required:[true,"Please provide your password"],
         minLength:[8,"Password must contain atleast 8 characters"],
         maxLength:[32,"Password cannot contain more than 32 characters"],
-        select : false,
+       select:true
 
     },
     role:{
@@ -46,17 +46,19 @@ const userSchema=new mongoose.Schema({
 
 
 //Hashing the password
-userSchema.pre("save",async function(next){
-    if(!this.isModified("password")){
-        next()
+userSchema.pre("save", async function (next) {
+    if (!this.isModified("password")) {
+        next();
     }
-    this.password = await bcrypt.hash(this.password,10);
-})
+    this.password = await bcrypt.hash(this.password, 10);
+});
 
 //Comparing the password
-userSchema.methods.comparePassword = async function(enteredPassword){
-    return await bcrypt.compare(enteredPassword,this.password);
-}
+userSchema.methods.comparePassword = async function (enteredPassword) {
+    console.log("Comparing:", enteredPassword, "with", this.password);
+    return await bcrypt.compare(enteredPassword, this.password);
+};
+
 
 //Generating the JWT token for authorization
 //id:this._id

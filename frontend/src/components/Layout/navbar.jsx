@@ -8,6 +8,7 @@ import {toast} from 'react-hot-toast';
 const Navbar = () => {
   const {show,setShow}=useState(false);
   const {isAuthorized,setIsAuthorized,user} = useContext(Context);
+  console.log(user)
   console.log(`********************************Is Authorized is :${isAuthorized}*******************************`);
   const navigateTo=useNavigate();
   const handleLogout = async()=>{
@@ -34,7 +35,7 @@ const Navbar = () => {
           </li>
 
           {
-            user && user.role==='Admin' && user.isvalidated ? (
+            user && user.role==='Admin' && isAuthorized ? (
               <>
               <li>
             <Link to={'/req/getAll'} onClick={()=>setShow(false)}>ALL Requests</Link>
@@ -52,7 +53,7 @@ const Navbar = () => {
           }
           
           {
-            user && user.role==='Customer' && user.isvalidated ? (
+            user && user.role==='Customer' && isAuthorized ? (
               <>
               <li>
                 <Link to={'/req/post'} onClick={()=>setShow(false)}>Raise a Request</Link>
@@ -69,7 +70,7 @@ const Navbar = () => {
             )
           }
           {
-            user && user.role==='Mechanic' && user.isvalidated ? (
+            user && user.role==='Mechanic' && isAuthorized ? (
               <>
               <li>
                 <Link to={'/myserv'} onClick={()=>setShow(false)}>My Active Services</Link>

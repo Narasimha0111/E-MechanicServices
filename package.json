@@ -1,0 +1,23 @@
+{
+  "name": "e-mech-services",
+  "version": "1.0.0",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Narasimha0111/E-Mechanic-Services.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Narasimha0111/E-Mechanic-Services/issues"
+  },
+  "homepage": "https://github.com/Narasimha0111/E-Mechanic-Services#readme",
+  "description": "",
+  "dependencies": {
+    "nodemon": "^3.1.9"
+  }
+}
